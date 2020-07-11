@@ -1,2 +1,4 @@
 # MyDevTest
-DevTest for learning Git
+
+DevTest for learning  
+This will help me to learn git operation.
