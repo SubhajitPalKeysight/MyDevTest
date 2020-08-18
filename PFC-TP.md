@@ -9,15 +9,15 @@
     - [Keysight configuration](#keysight-configuration)
   - [Test cases](#test-cases)
     - [Test Case #1 - PFC PAUSE with single lossless priority](#test-case-1---pfc-pause-with-single-lossless-priority)
-      - [Test Case Objective](#test-case-objective)
+      - [Test Objective](#test-objective)
       - [Test Configuration](#test-configuration)
       - [Test Steps](#test-steps)
     - [Test Case #2 - PFC PAUSE with multiple lossless priorities](#test-case-2---pfc-pause-with-multiple-lossless-priorities)
-      - [Test Objective](#test-objective)
+      - [Test Objective](#test-objective-1)
       - [Test Configuration](#test-configuration-1)
       - [Test Steps](#test-steps-1)
     - [Test Case #3 - PFC PAUSE with lossy priorities](#test-case-3---pfc-pause-with-lossy-priorities)
-      - [Test Objective](#test-objective-1)
+      - [Test Objective](#test-objective-2)
       - [Test Configuration](#test-configuration-2)
       - [Test Steps](#test-steps-2)
 
@@ -77,16 +77,13 @@ sure that traffic are getting paused or unpaused on correct priorities.
 ### Testbed
 
 ```
-
 +-------------+      +--------------+      +-------------+
 | Keysight TX |------|   SONiC DUT  |------| Keysight RX |
 +-------------+      +--------------+      +-------------+
 
 Keysight ports are connected via SONiC switch as shown in the illustration above.
 
-The test will run on the following testbed:
-
-T0-64
+The test will run on the following testbed: T0-64
 ```
 
 ## Setup configuration
@@ -103,15 +100,14 @@ T0-64
 
 ### Test Case #1 - PFC PAUSE with single lossless priority
 
-#### Test Case Objective
+#### Test Objective
 
 Verify DUT processes the PFC PAUSE frame with single lossless CoS
 properly.
 
 #### Test Configuration
 
-- On SONiC DUT configure a single lossless CoS value Pi. (0 \<= i \<=
-    7).
+- On SONiC DUT configure a single lossless CoS value Pi. (0 \<= i \<= 7).
 - Configure following traffic items on the Keysight device:
   1. Test data traffic: A traffic item from the Keysight Tx port to
         the Keysight Rx port with lossless priority (DSCP value == Pi).
@@ -134,11 +130,8 @@ properly.
 3. Keep the Test and Background traffic running for a fixed duration
     and then stop both the traffic items.
 4. Verify the following:
-   * Keysight Rx port should receive all the Background data traffic
-        with DSCP != Pi.
-   * Keysight Rx port should not receive any Test data traffic with
-        DSCP == Pi, as these frames should not be transmitted by the DUT
-        due to the PFC PAUSE storm received from Keysight Rx port.
+   * Keysight Rx port should receive all the Background data traffic with DSCP != Pi.
+   * Keysight Rx port should not receive any Test data traffic with DSCP == Pi, as these frames should not be transmitted by the DUT due to the PFC PAUSE storm received from Keysight Rx port.
 5. Stop the PFC PAUSE storm.
 6. Now start the Test data traffic again for a fixed duration.
 7. Verify as there is no PFC PAUSE received by DUT, the Keysight Rx port should receive all the Test data packets.
