@@ -16,7 +16,7 @@
       - [Test Objective](#test-objective)
       - [Test Configuration](#test-configuration-1)
       - [Test Steps](#test-steps-1)
-    - [Test Case #3 - PFC PAUSE with lossy priorities**](#test-case-3---pfc-pause-with-lossy-priorities)
+    - [Test Case #3 - PFC PAUSE with lossy priorities](#test-case-3---pfc-pause-with-lossy-priorities)
       - [Test Objective](#test-objective-1)
       - [Test Configuration](#test-configuration-2)
       - [Test Steps](#test-steps-2)
@@ -113,13 +113,13 @@ properly.
 - On SONiC DUT configure a single lossless CoS value Pi. (0 \<= i \<=
     7).
 - Configure following traffic items on the Keysight device:
-    1. Test data traffic: A traffic item from the Keysight Tx port to
+  1. Test data traffic: A traffic item from the Keysight Tx port to
         the Keysight Rx port with lossless priority (DSCP value == Pi).
         Traffic should be configured with 50% of line rate.
-    2. Background data traffic: A traffic item from the Keysight Tx
+  2. Background data traffic: A traffic item from the Keysight Tx
         port to the Keysight Rx port with lossy priorities (DSCP value
         != Pi). Traffic should be configured with 50% of line rate.
-    3. PFC PAUSE storm: Persistent PFC pause frames from the Keysight
+  3. PFC PAUSE storm: Persistent PFC pause frames from the Keysight
         Rx port to the Keysight Tx port. The priorities of PFC pause
         frames should be same as that of 'Test data traffic'. And the
         inter-frame transmission interval should be smaller than
@@ -177,7 +177,6 @@ properly.
 3. Keep the Test and Background traffic running for a fixed duration
     and then stop both the traffic items.
 4. Verify the following:
-
    * Keysight Rx port should receive all the Background data traffic
         with DSCP != Pi, Pm.
    * Keysight Rx port should not receive any Test data traffic with
@@ -199,13 +198,13 @@ Verify DUT processes the PFC PAUSE frame with lossy CoSs properly.
 - On SONiC DUT configure a single lossless CoS value Pi (0 \<= i \<=
     7).
 - Configure following traffic items on the Keysight device:
-    1. Test data traffic: A traffic item from the Keysight Tx port to
+  1. Test data traffic: A traffic item from the Keysight Tx port to
         the Keysight Rx port with the lossy priorities (DSCP value !=
         Pi). Traffic should be configured with 50% line rate.
-    2. Background data traffic: A traffic item from the Keysight Tx
+  2. Background data traffic: A traffic item from the Keysight Tx
         port to the Keysight Rx port with the lossless priority (DSCP
         value == Pi). Traffic should be configured with 50% line rate.
-    3. PFC PAUSE storm: Persistent PFC pause frames from the Keysight
+  3. PFC PAUSE storm: Persistent PFC pause frames from the Keysight
         Rx port to the Keysight Tx port. The priorities of PFC pause
         frames should be same as that of 'Test data traffic'. And the
         inter-frame transmission interval should be smaller than
