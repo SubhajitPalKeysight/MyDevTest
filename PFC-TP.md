@@ -170,12 +170,9 @@ properly.
 
 #### Test Steps
 
-1. Start PFC PAUSE storm to fully block the lossless priorities at the
-    DUT.
-2. After a fixed duration (eg. 1 sec), start the Test data traffic and
-    Background data traffic simultaneously.
-3. Keep the Test and Background traffic running for a fixed duration
-    and then stop both the traffic items.
+1. Start PFC PAUSE storm to fully block the lossless priorities at the DUT.
+2. After a fixed duration (eg. 1 sec), start the Test data traffic and Background data traffic simultaneously.
+3. Keep the Test and Background traffic running for a fixed duration and then stop both the traffic items.
 4. Verify the following:
    * Keysight Rx port should receive all the Background data traffic
         with DSCP != Pi, Pm.
@@ -184,8 +181,7 @@ properly.
         DUT due to the PFC PAUSE storm received from Keysight Rx port.
 5. Stop the PFC PAUSE storm.
 6. Now start the Test data traffic again for a fixed duration.
-7. Verify as there is no PFC PAUSE received by DUT, the Keysight Rx
-    port should receive all the Test data packets.
+7. Verify as there is no PFC PAUSE received by DUT, the Keysight Rx port should receive all the Test data packets.
 
 ### Test Case #3 - PFC PAUSE with lossy priorities
 
@@ -213,13 +209,9 @@ Verify DUT processes the PFC PAUSE frame with lossy CoSs properly.
 #### Test Steps
 
 1. Start PFC PAUSE storm.
-2. After a fixed duration (eg. 1 sec), start the Test data traffic and
-    Background data traffic simultaneously.
-3. Keep the Test and Background traffic running for a fixed duration
-    and then stop both the traffic items.
+2. After a fixed duration (eg. 1 sec), start the Test data traffic and Background data traffic simultaneously.
+3. Keep the Test and Background traffic running for a fixed duration and then stop both the traffic items.
 4. Verify the following:
-    * Keysight Rx port should receive all the 'Background data
-        traffic' as well as 'Test data traffic'. There should not be any
-        loss observed.
+   * Keysight Rx port should receive all the 'Background data traffic' as well as 'Test data traffic'. There should not be any loss observed.
 5. Stop the PFC PAUSE storm.
 6. Repeat the test with a different lossless priority value (!=Pi).
